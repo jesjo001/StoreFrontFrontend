@@ -1,0 +1,11 @@
+{
+    "include": ["src/**/*.js"],
+    "exclude": ["**/node_modules/*", "node_modules", "src/common/icons/**/*"],
+    "compilerOptions": {
+        "module": "es6",
+        "checkJs": false,
+        "target": "es2020",
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "classic"
+    }
+}
