@@ -261,6 +261,12 @@ const Container = styled.div`
     padding-top: 60px;
     background-color: #F5F5F5;
     padding-bottom: 20px;
+    min-width: 1300px;
+    margin-left: 0px;
+    margin-right: 0px;
+    @media (min-width: 1306px) {
+        min-width: 1000px;
+    }
 `
 
 const HorizontalSection = styled.div`
@@ -278,6 +284,10 @@ const SliderContainer = styled.div`
     margin-bottom: 20px;
     background-color: white;
     border-radius: 15px;
+    @media (max-width: 1306px) {
+        min-width: 1000px;   
+        min-height: 400px;
+    }
 `
 
 const SectionTitleContainer = styled.div`
