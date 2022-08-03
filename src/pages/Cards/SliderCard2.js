@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components'
 import { Button, Radio } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
+import useCheckMobileScreen from '../../utils/DesktopScreen';
 
 export default function ProductCard({img, id, title, description, price, onClick, screenSize }) {
   
-  console.log("screenSize ", screenSize);
   return (
     <Container id={id} >
         <ImageContainer onClick={() => onClick(id)}>
@@ -25,8 +25,8 @@ export default function ProductCard({img, id, title, description, price, onClick
 
         <BottomContainer>
           <PriceTag onClick={() => onClick(id)}> { price ? price : ""} </PriceTag>
-          <ActionButton shape="round" size="large" icon={<ShoppingCartOutlined />}>
-           {screenSize !== undefined ?? screenSize.dynamicWidth < 1316 ? '' : 'Add to Cart'  } 
+          <ActionButton shape="round" size="large" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}} >
+            { useCheckMobileScreen('medium') ? <ShoppingCartOutlined />  : 'Add to Cart' }
           </ActionButton>
         </BottomContainer>
 
@@ -60,12 +60,13 @@ const Container = styled.div`
   }
 
    @media (max-width: 918px) {
-    width: 40%;
+    width: 80%;
   }
 
   @media (max-width: 492px) {
     width: 80%;
   }
+
 `
 const ImageContainer = styled.div`
   width: 100%;
