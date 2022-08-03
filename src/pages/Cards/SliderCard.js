@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
-import { Button, Radio } from 'antd';
+import { Button, Radio,  } from 'antd';
+import {
+  ShoppingCartOutlined
+} from '@ant-design/icons';
+import useCheckMobileScreen from '../../utils/DesktopScreen';
 
 export default function ProductCard({img, id, title, description, price, onClick}) {
   
@@ -27,7 +31,8 @@ export default function ProductCard({img, id, title, description, price, onClick
           <PriceTag> { price ? price : ""} </PriceTag>
             
           <Button type="primary" shape="round" size="large">
-            Add to Cart
+            
+            { useCheckMobileScreen() ? <ShoppingCartOutlined />  : 'Add to Cart' }
           </Button>
         </BottomContainer>
 
