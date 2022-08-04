@@ -8,8 +8,10 @@ import { useHistory } from "react-router-dom";
 
 
 
-const SimpleSlider = ({ data, addToCart, sideTitle, dot, navigateToPage, rtl, speed, autoplay, slidesToShow, slidesToScroll }) => {
+const SimpleSlider = (props) => {
  
+  const { data, addToCart, sideTitle, dot, navigateToPage, rtl, speed, autoplay, slidesToShow, slidesToScroll, sliderWidth } = props
+  console.log("props.width >> ", props.sliderWidth)
   const [screenSize, getDimension] = useState({
     dynamicWidth: window.innerWidth,
     dynamicHeight: window.innerHeight
@@ -44,7 +46,7 @@ const SimpleSlider = ({ data, addToCart, sideTitle, dot, navigateToPage, rtl, sp
   ))
 
   return (
-    <div style={{ paddingLeft: '100px', paddingRight: '100px' }}>
+    <div style={{ paddingLeft: '40px', paddingRight: '40px' }}>
                 <SideTitileContainer>
                     <SideTitile>{ sideTitle ? sideTitle : "Selected for you" }</SideTitile>
                 </SideTitileContainer>
@@ -87,8 +89,8 @@ const SliderContainer = styled.div`
     margin-bottom: 20px;
     background-color: white;
     border-radius: 15px;
-    width: 70vw;
-    min-width:1358px;
+    width: ${({ sliderWidth }) => sliderWidth ? `60` :  `70`}vw;
+    
 `
 
 const SideTitileContainer = styled.div`
