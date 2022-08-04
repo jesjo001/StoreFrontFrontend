@@ -25,7 +25,7 @@ export default function ProductCard({img, id, title, description, price, onClick
 
         <BottomContainer>
           <PriceTag onClick={() => onClick(id)}> { price ? price : ""} </PriceTag>
-          <ActionButton shape="round" size="large" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center'}} >
+          <ActionButton shape="round" size="large" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', fontSize: '1em', width: 'auto'}} >
             { useCheckMobileScreen('medium') ? <ShoppingCartOutlined />  : 'Add to Cart' }
           </ActionButton>
         </BottomContainer>
@@ -37,7 +37,7 @@ export default function ProductCard({img, id, title, description, price, onClick
 const Container = styled.div`
   display: flex;
   flex-direction:column;
-  width: 85%;
+  width: 100vw;
   height: auto;  
   // background-color: #F8FCFF;
   margin:20px;
@@ -56,7 +56,7 @@ const Container = styled.div`
   }
 
    @media (max-width: 1280px) {
-    width: 60%;
+    width: 80%;
   }
 
    @media (max-width: 918px) {
