@@ -131,7 +131,7 @@ const SingleProductPage = () => {
                 </BoxContainer>
                 <BoxContainer sx={{ padding: '40px'}}>
                     <ProductTitle>Nike Air Max Pro 2022</ProductTitle>
-                    <Box sx={{ width: '600px'}}>
+                    <Box>
                         {product.description}
                     </Box>
                     
@@ -156,7 +156,6 @@ const SingleProductPage = () => {
 
                     <Box sx={{ width: '600px', padding: '40px', paddingLeft: '0px', paddingTop: '10px' }}>
                         <Box sx={{ fontSize: '1.1em', color: 'gray', fontWeight: '600', paddingBottom: '10px' }}> Product Pictures: </Box>
-
                         <PreviewImageContainer>
                             { product.pictures.map((item, index) => {
                                 return (
@@ -169,20 +168,14 @@ const SingleProductPage = () => {
                                 )
                             })}
                         </PreviewImageContainer>
-                        
                     </Box>
-
+                    
                     <Box sx={{ width: '600px', padding: '40px', paddingLeft: '0px', paddingTop: '50px' }}>
                         <Box sx={{ fontSize: '1.9em', color: 'gray', fontWeight: '600', paddingBottom: '10px' }}> 
                             {product.price} 
                         </Box>
-
                         <Button size="large" style={{ backgroundColor: 'black', color: 'white', borderRadius: '5px' }}>Add to Cart </Button>
-
-
                     </Box>
-
-
                 </BoxContainer>
             </HorizontalSection>
 
@@ -256,13 +249,16 @@ const SingleProductPage = () => {
 export default SingleProductPage
 
 const Container = styled.div`
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 60px;
+    padding-right: 60px;
+    margin: 0px;
     height: auto;
     padding-top: 60px;
     background-color: #F5F5F5;
     padding-bottom: 20px;
-    min-width: 1740px;
+    max-width: 100vw;
+    min-width: 100vw;
+
 `
 
 const HorizontalSection = styled.div`
@@ -274,7 +270,7 @@ const HorizontalSection = styled.div`
     margin-bottom: 30px;
     height: auto;
     border-radius: 8px;
-    min-width: 1508px;
+    min-width: 60vw;
 `
 
 const Section = styled.div`
@@ -286,9 +282,8 @@ const Section = styled.div`
     margin-bottom: 30px;
     height: auto;
     border-radius: 8px;
-    width: auto;
+    width: auto
 `
-
 
 const SliderContainer = styled.div`
     margin-top: 50px;
