@@ -149,13 +149,13 @@ const SingleProductPage = () => {
                                             src={process.env.PUBLIC_URL+`/images/${mainImage}`}  
                                         />
                                     </BoxContainer>
-                                    <ItemContainer sx={{ padding: '40px'}}>
+                                    <ItemContainer sx={{ padding: '20px'}}>
                                        <ProductSubTitle> {item.category} </ProductSubTitle>
                                        <ProductTitle> {item.title}</ProductTitle>
                                     </ItemContainer>
                                     <BoxContainer style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                                         <PriceTag>$150</PriceTag>
-                                        <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-arround', alignItems: 'center', fontSize: '1.6em'}}>
+                                        <Box style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-arround', alignItems: 'center', fontSize: '1.6em', color: '#969590'}}>
                                             <QtyButton> - </QtyButton>
                                             <span style={{ marginLeft: '15px', marginRight: '15px'}}>{item.qty}</span>
                                             <QtyButton> + </QtyButton>
@@ -176,12 +176,12 @@ const SingleProductPage = () => {
                     
                         <OrderRow>
                             <Box> Total Orders :</Box>
-                            <Box sx={{ paddingLeft: '50px', marginLeft: '50px', textAlign: 'right', float: 'right'  }}>$1234</Box>
+                            <Box sx={{ paddingLeft: '40px', marginLeft: '40px', textAlign: 'right', float: 'right'  }}>$1234</Box>
                         </OrderRow>
 
                         <OrderRow>
                             <Box> Shipping :</Box>
-                            <Box sx={{ paddingLeft: '50px', marginLeft: '50px', textAlign: 'right', float: 'right'  }}>$1234</Box>
+                            <Box sx={{ paddingLeft: '40px', marginLeft: '40px', textAlign: 'right', float: 'right'  }}>$1234</Box>
                         </OrderRow>
                     </OverviewSummary>
 
@@ -189,20 +189,15 @@ const SingleProductPage = () => {
                         <Box>$1200</Box> 
                         <Box>Continue to payment</Box> 
                     </OverviewFooter>
-
-
                 </CartSummary>
 
             </CartSection>
 
             <HorizontalSection>
-                
-              
             </HorizontalSection>
 
-
-            <Section>
-                <HorizontalSection style={{ height: 'auto', paddingBottom:'20px' }}>
+            
+                <SliderHorizontalSection style={{ paddingBottom: '10px' }}>
                     <SimpleSlider 
                         data={productData}
                         addToCart={addToCart}
@@ -210,13 +205,14 @@ const SingleProductPage = () => {
                         rtl={false}
                         speed={3000}
                         autoplay={true}
-                        slidesToShow={6}
+                        slidesToShow={5}
                         slidesToScroll={1}
                         dot={false}
                         sideTitle="Favourite"
+                        sliderWidth={true}
                     />
-                </HorizontalSection>                
-            </Section>
+                </SliderHorizontalSection>                
+            
 
             
         </Container>
@@ -232,19 +228,36 @@ const Container = styled.div`
     padding-top: 60px;
     background-color: #F5F5F5;
     padding-bottom: 20px;
-    min-width: 1740px;
+    min-width: auto;
 `
 
 const HorizontalSection = styled.div`
     display: flex;
     flex-direction: row;
+    padding: 0px;
+    width:auto;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     align-content: center;
     background-color: white;
     margin-bottom: 30px;
-    height: auto;
+    height:auto;
+    border-radius: 8px;
+`
+
+const SliderHorizontalSection = styled.div`
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    width:auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    margin-bottom: 30px;
+    height:auto;
     border-radius: 8px;
 `
 
@@ -253,11 +266,15 @@ const Section = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: flex-start;
-    background-color: white;
-    margin-bottom: 30px;
+    background-color: none;
+    margin-bottom: 10px;
     height: auto;
     border-radius: 8px;
     width: auto;
+    margin-left: 0px;
+    padding: 0px;
+    padding:0px;
+
 `
 
 
@@ -292,7 +309,7 @@ const BoxContainer = styled(Box)`
 `
 
 const ItemContainer = styled(Box)`
-  width: auto;
+  width: 60%;
   height: 100%;
   display: block;
 `
@@ -303,6 +320,7 @@ const PriceTag = styled(Box)`
   font-size: 1.5em;
   font-weight: 600;
   padding-bottom: 10px;
+  color: #969590
 
 `
 
@@ -311,14 +329,14 @@ const ProductTitle = styled.h3`
   color: orange;
   font-size: 1.4em;
   font-family: 'Anton', sans-serif;
-  width: 600px;
+  width: 15vw;
 `
 
 const ProductSubTitle = styled.h3`
   font-style: bold;
   font-weight: 600;
   color: grey;
-  font-size: 0.9em;
+  font-size: 0.7em;
   width: 600px;
 `
 
@@ -334,14 +352,15 @@ const CartSection = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 `
 
 const CartList = styled.div`
     width: 65%;
     overflow: auto;
     padding-right:10px;
+    margin-right:10px;
     padding-left:10px;
     max-height: 700px;
 `
@@ -353,6 +372,7 @@ const CartSummary = styled.div`
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 30px;
     border-radius: 15px;
 `
@@ -363,16 +383,16 @@ const QtyButton = styled(Button)`
 
 
 const SummaryTitle = styled.div`
-    font-size: 2em;
+    font-size: 1em;
     color: grey;
-    padding: 20px;
-    font-weight: 600;
+    padding: 5px;
+    font-weight: 800;
 `
 
 const OverviewSummary = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 0px;
     color: white;
     justify-content: flex-start;
     flex:0.8;
@@ -381,22 +401,22 @@ const OverviewSummary = styled.div`
 const OrderRow = styled.div`
     display: flex;
     flex-direction: row; 
-    padding: 20px; 
+    padding: 5px; 
     justify-content: space-between; 
-    font-size: 1.5em;
+    font-size: 1em;
     color: gray; 
     font-weight: 600;
 `
 
-const OverviewFooter = styled.div`
-    height: 150px;
+const OverviewFooter = styled.button`
+    height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
     align-content: center;
     align-items: center;
-    flex: 0.2;
+    flex: 0.1;
     background-color: orange;
     margin:-30;
     zIndex:1000;
