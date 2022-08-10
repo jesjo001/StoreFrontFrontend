@@ -26,10 +26,14 @@ const Header = () =>{
               <Link to="/about">About</Link>
           </Item>
 
-          <SubMenu key="CartMenu" icon={<ShoppingCartOutlined />} title="Cart" className="d-flex column justify-content-between align-items-center">
+          <Item key="cart" icon={<ShoppingCartOutlined />} className="d-flex column justify-content-between align-items-center">
+              <Link to="/cart">Cart</Link>
+          </Item>
+
+          {/* <SubMenu key="CartMenu" icon={<ShoppingCartOutlined />} title="Cart" className="d-flex column justify-content-between align-items-center">
               <Item key="setting:1">Option 1</Item>
               <Item key="setting:2">Option 2</Item>
-          </SubMenu>
+          </SubMenu> */}
 
           <Item key="register" icon={<UserOutlined />} className="d-flex column justify-content-between align-items-center">
             <Link to="/register">Register</Link>
